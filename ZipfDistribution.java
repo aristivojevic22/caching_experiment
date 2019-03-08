@@ -49,17 +49,17 @@ public int generateRequest()
 	double frequency = 0;
 	double random_value;
 
-	address = random_.nextInt(address_capacity + 1);
+	address = random_.nextInt(address_capacity)+1;
 	frequency = (1/Math.pow(address,this.skew)) / this.zeta_value;
 	random_value = random_.nextDouble();
 
 	while(!(random_value < frequency))
 		{
-			 address = random_.nextInt(address_capacity);
+			 address = random_.nextInt(address_capacity)+1;
 			 frequency = (1/Math.pow(address, this.skew))/this.zeta_value;
 			 random_value = random_.nextDouble();
 		}
-	return address;
+	return address-1;
 
 }// generateRequest
 
